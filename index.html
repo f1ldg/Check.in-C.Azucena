@@ -7,7 +7,7 @@
 
 <style>
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
   margin: 0;
   background: #f2f2f7;
   color: #1c1c1e;
@@ -22,21 +22,19 @@ body {
 h1 {
   text-align: center;
   font-weight: 600;
-  margin-bottom: 10px;
 }
 
 h2 {
   margin-top: 28px;
   font-size: 1.2em;
-  font-weight: 600;
 }
 
 .card {
   background: white;
-  padding: 18px;
+  padding: 16px;
   border-radius: 16px;
   margin-top: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .hero-img {
@@ -45,9 +43,20 @@ h2 {
   margin: 15px 0;
 }
 
+.photo-grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 12px;
+  flex: 1 1 48%;
+}
+
 .lang-switch {
   text-align: center;
-  margin-bottom: 12px;
 }
 
 .lang-btn {
@@ -77,9 +86,7 @@ a {
   color: white;
   padding: 14px 18px;
   border-radius: 30px;
-  font-weight: 500;
   text-decoration: none;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 </style>
 </head>
@@ -97,12 +104,22 @@ a {
 <button class="lang-btn" onclick="setLanguage('de')">DE</button>
 </div>
 
+<!-- HERO -->
 <img class="hero-img" src="images/DSC04404.jpg">
 
 <h2 data-i18n="access">🔑 Access</h2>
 <div class="card">
 <p data-i18n-html="access_text"></p>
 <p data-i18n="access_code"></p>
+<img src="images/PSPh_3063.jpg">
+</div>
+
+<h2 data-i18n="house">🏠 The House</h2>
+<div class="card">
+<div class="photo-grid">
+<img src="images/PSPh_3143.jpg">
+<img src="images/PSPh_3193.jpg">
+</div>
 </div>
 
 <h2>📶 Wi-Fi</h2>
@@ -133,7 +150,6 @@ a {
 <h2 data-i18n="guide">📍 Local Guide</h2>
 <div class="card">
 <p data-i18n="guide_text"></p>
-
 <p>👉 <a href="https://maps.app.goo.gl/HMr3f7wAdSFDgdmGA" target="_blank">Restaurants & Spots</a></p>
 <p>👉 <a href="https://maps.app.goo.gl/56Yh8cR3Par8S8hLA" target="_blank">Places to Visit</a></p>
 </div>
@@ -144,6 +160,11 @@ a {
 <p><strong>Leandro</strong> · <a href="tel:+34684335725">+34 684 335 725</a></p>
 </div>
 
+<h2 data-i18n="enjoy">😊 Enjoy your stay!</h2>
+<div class="card">
+<img src="images/PSPh_3233.jpg">
+</div>
+
 </div>
 
 <a class="whatsapp-btn" href="https://wa.me/34684335725?text=Hi%20Leandro,%20we%20just%20arrived" target="_blank">
@@ -152,71 +173,74 @@ a {
 
 <script>
 const t = {
-
-en: {
+en:{
 title:"🏡 Self Check-in Guide",
 access:"🔑 Access",
-access_text:"Once you arrive at <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a>, you will find the key safely stored in the lockbox by the entrance.",
-access_code:"The access code will be sent to you shortly before your arrival.",
+access_text:"Once you arrive at <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a>, you’ll find the key in the lockbox by the entrance.",
+access_code:"The code will be sent shortly before arrival.",
+house:"🏠 The House",
 ac:"❄️ Air Conditioning & Heating",
-ac_text:"Please ensure all windows and doors are fully closed when using the air conditioning or heating. Otherwise, the system may automatically shut down. If the red light next to the A/C unit is on, it usually means a window or door is still open.",
+ac_text:"Ensure all windows and doors are closed when using A/C or heating. Otherwise, it may shut down. A red light means something is open.",
 parking:"🚗 Parking",
-parking_text:"Street parking in Estepona is free. Paid parking options are also available nearby if preferred.",
+parking_text:"Street parking is free. Paid options available nearby.",
 supermarkets:"🛒 Supermarkets",
 guide:"📍 Local Guide",
-guide_text:"We’ve curated a selection of our favorite local spots, restaurants, and must-see places:",
+guide_text:"Our favorite local spots and places to explore:",
 contact:"📞 Contact",
-contact_text:"If you need anything during your stay, feel free to contact me anytime."
+contact_text:"Reach out anytime if you need anything.",
+enjoy:"😊 Enjoy your stay!"
 },
-
-es: {
+es:{
 title:"🏡 Guía de Check-in",
 access:"🔑 Acceso",
-access_text:"Al llegar a <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a>, encontrarás la llave en una caja de seguridad junto a la entrada.",
-access_code:"Te enviaremos el código poco antes de tu llegada.",
-ac:"❄️ Aire Acondicionado y Calefacción",
-ac_text:"Asegúrate de que todas las ventanas y puertas estén completamente cerradas al usar el aire acondicionado o la calefacción. De lo contrario, el sistema puede apagarse automáticamente. Si la luz roja junto al equipo está encendida, normalmente significa que hay una ventana o puerta abierta.",
+access_text:"Al llegar a <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a>, encontrarás la llave en la caja de seguridad.",
+access_code:"El código se enviará antes de tu llegada.",
+house:"🏠 La Casa",
+ac:"❄️ Aire Acondicionado",
+ac_text:"Cierra puertas y ventanas. Si la luz roja está encendida, algo está abierto.",
 parking:"🚗 Aparcamiento",
-parking_text:"El aparcamiento en la calle en Estepona es gratuito. También hay parkings de pago cercanos.",
+parking_text:"Aparcamiento gratuito en la calle.",
 supermarkets:"🛒 Supermercados",
 guide:"📍 Guía Local",
-guide_text:"Hemos seleccionado algunos de nuestros lugares favoritos, restaurantes y sitios imprescindibles:",
+guide_text:"Nuestros sitios favoritos:",
 contact:"📞 Contacto",
-contact_text:"Si necesitas cualquier cosa durante tu estancia, no dudes en contactarme."
+contact_text:"Contáctame si necesitas algo.",
+enjoy:"😊 ¡Disfruta tu estancia!"
 },
-
-fr: {
+fr:{
 title:"🏡 Guide d'arrivée",
 access:"🔑 Accès",
-access_text:"À votre arrivée à <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a>, la clé se trouve dans une boîte sécurisée près de l’entrée.",
-access_code:"Le code vous sera envoyé peu avant votre arrivée.",
-ac:"❄️ Climatisation & Chauffage",
-ac_text:"Veuillez fermer toutes les portes et fenêtres lorsque vous utilisez la climatisation ou le chauffage. Sinon, le système peut s’arrêter automatiquement. Si le voyant rouge est allumé, cela signifie généralement qu’une porte ou fenêtre est ouverte.",
+access_text:"À votre arrivée à <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a>, la clé est dans la boîte.",
+access_code:"Code envoyé avant arrivée.",
+house:"🏠 La Maison",
+ac:"❄️ Climatisation",
+ac_text:"Fermez portes et fenêtres. Lumière rouge = ouvert.",
 parking:"🚗 Stationnement",
-parking_text:"Le stationnement dans la rue est gratuit à Estepona.",
+parking_text:"Parking gratuit dans la rue.",
 supermarkets:"🛒 Supermarchés",
 guide:"📍 Guide Local",
-guide_text:"Voici notre sélection de restaurants et lieux à découvrir :",
+guide_text:"Nos recommandations:",
 contact:"📞 Contact",
-contact_text:"N’hésitez pas à nous contacter à tout moment."
+contact_text:"Contactez-moi à tout moment.",
+enjoy:"😊 Bon séjour !"
 },
-
-de: {
+de:{
 title:"🏡 Check-in Anleitung",
 access:"🔑 Zugang",
-access_text:"Bei Ihrer Ankunft in <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a> befindet sich der Schlüssel in einer Schlüsselbox am Eingang.",
-access_code:"Den Code erhalten Sie kurz vor Ihrer Ankunft.",
-ac:"❄️ Klimaanlage & Heizung",
-ac_text:"Bitte stellen Sie sicher, dass alle Fenster und Türen geschlossen sind, wenn Sie die Klimaanlage oder Heizung nutzen. Andernfalls kann sich das System automatisch abschalten. Wenn die rote Leuchte leuchtet, ist wahrscheinlich noch ein Fenster oder eine Tür offen.",
+access_text:"Bei Ankunft in <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a> ist der Schlüssel in der Box.",
+access_code:"Code vor Ankunft.",
+house:"🏠 Das Haus",
+ac:"❄️ Klimaanlage",
+ac_text:"Fenster und Türen schließen. Rotes Licht = offen.",
 parking:"🚗 Parken",
-parking_text:"Parken auf der Straße ist in Estepona kostenlos.",
+parking_text:"Straßenparken kostenlos.",
 supermarkets:"🛒 Supermärkte",
 guide:"📍 Lokaler Guide",
-guide_text:"Unsere Empfehlungen für Restaurants und Sehenswürdigkeiten:",
+guide_text:"Unsere Empfehlungen:",
 contact:"📞 Kontakt",
-contact_text:"Bei Fragen können Sie uns jederzeit kontaktieren."
+contact_text:"Kontaktieren Sie mich jederzeit.",
+enjoy:"😊 Schönen Aufenthalt!"
 }
-
 };
 
 function setLanguage(lang){
