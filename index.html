@@ -7,59 +7,66 @@
 
 <style>
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   margin: 0;
-  background: #f4f6f8;
-  color: #2c3e50;
+  background: #f2f2f7;
+  color: #1c1c1e;
 }
 
 .container {
   max-width: 720px;
   margin: auto;
-  padding: 24px;
-  background: white;
+  padding: 20px;
 }
 
 h1 {
   text-align: center;
   font-weight: 600;
+  margin-bottom: 10px;
 }
 
 h2 {
-  margin-top: 30px;
+  margin-top: 28px;
+  font-size: 1.2em;
   font-weight: 600;
 }
 
 .card {
-  background: #fafafa;
-  padding: 16px;
-  margin-top: 12px;
-  border-radius: 10px;
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  margin-top: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
 }
 
 .hero-img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 16px;
   margin: 15px 0;
 }
 
 .lang-switch {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .lang-btn {
-  border: 1px solid #ddd;
-  background: white;
+  border: none;
+  background: #e5e5ea;
   padding: 6px 12px;
-  margin: 2px;
+  margin: 3px;
   border-radius: 20px;
   cursor: pointer;
 }
 
 .lang-btn.active {
-  background: #2c3e50;
+  background: #007aff;
   color: white;
+}
+
+a {
+  color: #007aff;
+  text-decoration: none;
 }
 
 .whatsapp-btn {
@@ -68,16 +75,11 @@ h2 {
   right: 20px;
   background: #25D366;
   color: white;
-  padding: 12px 16px;
+  padding: 14px 18px;
   border-radius: 30px;
-  text-decoration: none;
   font-weight: 500;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-a {
-  color: #007BFF;
   text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 </style>
 </head>
@@ -99,13 +101,8 @@ a {
 
 <h2 data-i18n="access">🔑 Access</h2>
 <div class="card">
-<p data-i18n="access_text"></p>
+<p data-i18n-html="access_text"></p>
 <p data-i18n="access_code"></p>
-</div>
-
-<h2 data-i18n="house">🏠 The House</h2>
-<div class="card">
-<p data-i18n="house_text"></p>
 </div>
 
 <h2>📶 Wi-Fi</h2>
@@ -114,7 +111,7 @@ a {
 <p><strong>Password:</strong> estepona</p>
 </div>
 
-<h2 data-i18n="ac">❄️ Air Conditioning</h2>
+<h2 data-i18n="ac">❄️ Air Conditioning & Heating</h2>
 <div class="card">
 <p data-i18n="ac_text"></p>
 </div>
@@ -124,79 +121,80 @@ a {
 <p data-i18n="parking_text"></p>
 </div>
 
+<h2 data-i18n="supermarkets">🛒 Supermarkets</h2>
+<div class="card">
+<ul>
+<li><a href="https://maps.app.goo.gl/shTXWpfKMjPco9k18" target="_blank">Carrefour Express</a></li>
+<li><a href="https://maps.app.goo.gl/AXoeSoYBudSyCaXF7" target="_blank">Carrefour Market</a></li>
+<li><a href="https://maps.app.goo.gl/UGKmsryvUuEre7sU6" target="_blank">Supermercado Dia</a></li>
+</ul>
+</div>
+
 <h2 data-i18n="guide">📍 Local Guide</h2>
 <div class="card">
 <p data-i18n="guide_text"></p>
 
-<p>
-👉 <a href="https://maps.app.goo.gl/HMr3f7wAdSFDgdmGA" target="_blank">Restaurants & Spots</a>
-</p>
-
-<p>
-👉 <a href="https://maps.app.goo.gl/56Yh8cR3Par8S8hLA" target="_blank">Places to Visit</a>
-</p>
-
+<p>👉 <a href="https://maps.app.goo.gl/HMr3f7wAdSFDgdmGA" target="_blank">Restaurants & Spots</a></p>
+<p>👉 <a href="https://maps.app.goo.gl/56Yh8cR3Par8S8hLA" target="_blank">Places to Visit</a></p>
 </div>
 
 <h2 data-i18n="contact">📞 Contact</h2>
 <div class="card">
 <p data-i18n="contact_text"></p>
-<p><strong>Leandro</strong></p>
+<p><strong>Leandro</strong> · <a href="tel:+34684335725">+34 684 335 725</a></p>
 </div>
 
 </div>
 
-<a class="whatsapp-btn" href="https://wa.me/34684335725" target="_blank">
+<a class="whatsapp-btn" href="https://wa.me/34684335725?text=Hi%20Leandro,%20we%20just%20arrived" target="_blank">
 💬 Contact host
 </a>
 
 <script>
 const t = {
+
 en: {
 title:"🏡 Self Check-in Guide",
 access:"🔑 Access",
-access_text:"When you arrive at the property (C/ Azucena 6), you’ll find the key safely stored in the lockbox by the entrance.",
+access_text:"Once you arrive at <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a>, you will find the key safely stored in the lockbox by the entrance.",
 access_code:"The access code will be sent to you shortly before your arrival.",
-house:"🏠 The House",
-house_text:"We hope you feel at home from the moment you arrive. Everything has been prepared for a comfortable and relaxing stay.",
-ac:"❄️ Air Conditioning",
-ac_text:"Please make sure all windows and doors are fully closed when using the A/C or heating. Otherwise, the system may stop automatically.",
+ac:"❄️ Air Conditioning & Heating",
+ac_text:"Please ensure all windows and doors are fully closed when using the air conditioning or heating. Otherwise, the system may automatically shut down. If the red light next to the A/C unit is on, it usually means a window or door is still open.",
 parking:"🚗 Parking",
-parking_text:"Street parking in Estepona is free. Paid parking options are also available nearby if you prefer.",
+parking_text:"Street parking in Estepona is free. Paid parking options are also available nearby if preferred.",
+supermarkets:"🛒 Supermarkets",
 guide:"📍 Local Guide",
-guide_text:"We’ve put together a selection of our favorite local spots, restaurants, and places to explore:",
+guide_text:"We’ve curated a selection of our favorite local spots, restaurants, and must-see places:",
 contact:"📞 Contact",
-contact_text:"If you need anything at all during your stay, feel free to reach out anytime."
+contact_text:"If you need anything during your stay, feel free to contact me anytime."
 },
 
 es: {
 title:"🏡 Guía de Check-in",
 access:"🔑 Acceso",
-access_text:"Al llegar a la vivienda (C/ Azucena 6), encontrarás la llave en una caja de seguridad junto a la entrada.",
-access_code:"Te enviaremos el código de acceso poco antes de tu llegada.",
-house:"🏠 La Casa",
-house_text:"Esperamos que te sientas como en casa desde el primer momento. Todo está preparado para que disfrutes de una estancia cómoda y relajante.",
-ac:"❄️ Aire Acondicionado",
-ac_text:"Asegúrate de cerrar completamente puertas y ventanas al usar el aire acondicionado o la calefacción, de lo contrario el sistema puede apagarse automáticamente.",
+access_text:"Al llegar a <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a>, encontrarás la llave en una caja de seguridad junto a la entrada.",
+access_code:"Te enviaremos el código poco antes de tu llegada.",
+ac:"❄️ Aire Acondicionado y Calefacción",
+ac_text:"Asegúrate de que todas las ventanas y puertas estén completamente cerradas al usar el aire acondicionado o la calefacción. De lo contrario, el sistema puede apagarse automáticamente. Si la luz roja junto al equipo está encendida, normalmente significa que hay una ventana o puerta abierta.",
 parking:"🚗 Aparcamiento",
-parking_text:"El aparcamiento en la calle en Estepona es gratuito. También hay parkings de pago cercanos si lo prefieres.",
+parking_text:"El aparcamiento en la calle en Estepona es gratuito. También hay parkings de pago cercanos.",
+supermarkets:"🛒 Supermercados",
 guide:"📍 Guía Local",
-guide_text:"Hemos preparado una selección de nuestros lugares favoritos, restaurantes y sitios para visitar:",
+guide_text:"Hemos seleccionado algunos de nuestros lugares favoritos, restaurantes y sitios imprescindibles:",
 contact:"📞 Contacto",
-contact_text:"Si necesitas cualquier cosa durante tu estancia, no dudes en contactarnos."
+contact_text:"Si necesitas cualquier cosa durante tu estancia, no dudes en contactarme."
 },
 
 fr: {
 title:"🏡 Guide d'arrivée",
 access:"🔑 Accès",
-access_text:"À votre arrivée (C/ Azucena 6), la clé se trouve dans une boîte sécurisée près de l’entrée.",
+access_text:"À votre arrivée à <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a>, la clé se trouve dans une boîte sécurisée près de l’entrée.",
 access_code:"Le code vous sera envoyé peu avant votre arrivée.",
-house:"🏠 La Maison",
-house_text:"Nous espérons que vous vous sentirez chez vous dès votre arrivée.",
-ac:"❄️ Climatisation",
-ac_text:"Veuillez fermer toutes les portes et fenêtres lorsque vous utilisez la climatisation ou le chauffage.",
+ac:"❄️ Climatisation & Chauffage",
+ac_text:"Veuillez fermer toutes les portes et fenêtres lorsque vous utilisez la climatisation ou le chauffage. Sinon, le système peut s’arrêter automatiquement. Si le voyant rouge est allumé, cela signifie généralement qu’une porte ou fenêtre est ouverte.",
 parking:"🚗 Stationnement",
 parking_text:"Le stationnement dans la rue est gratuit à Estepona.",
+supermarkets:"🛒 Supermarchés",
 guide:"📍 Guide Local",
 guide_text:"Voici notre sélection de restaurants et lieux à découvrir :",
 contact:"📞 Contact",
@@ -206,24 +204,27 @@ contact_text:"N’hésitez pas à nous contacter à tout moment."
 de: {
 title:"🏡 Check-in Anleitung",
 access:"🔑 Zugang",
-access_text:"Bei Ihrer Ankunft (C/ Azucena 6) befindet sich der Schlüssel in einer Schlüsselbox am Eingang.",
+access_text:"Bei Ihrer Ankunft in <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a> befindet sich der Schlüssel in einer Schlüsselbox am Eingang.",
 access_code:"Den Code erhalten Sie kurz vor Ihrer Ankunft.",
-house:"🏠 Das Haus",
-house_text:"Wir hoffen, Sie fühlen sich vom ersten Moment an wie zu Hause.",
-ac:"❄️ Klimaanlage",
-ac_text:"Bitte schließen Sie alle Fenster und Türen, wenn Sie die Klimaanlage oder Heizung benutzen.",
+ac:"❄️ Klimaanlage & Heizung",
+ac_text:"Bitte stellen Sie sicher, dass alle Fenster und Türen geschlossen sind, wenn Sie die Klimaanlage oder Heizung nutzen. Andernfalls kann sich das System automatisch abschalten. Wenn die rote Leuchte leuchtet, ist wahrscheinlich noch ein Fenster oder eine Tür offen.",
 parking:"🚗 Parken",
 parking_text:"Parken auf der Straße ist in Estepona kostenlos.",
+supermarkets:"🛒 Supermärkte",
 guide:"📍 Lokaler Guide",
 guide_text:"Unsere Empfehlungen für Restaurants und Sehenswürdigkeiten:",
 contact:"📞 Kontakt",
 contact_text:"Bei Fragen können Sie uns jederzeit kontaktieren."
 }
+
 };
 
 function setLanguage(lang){
 document.querySelectorAll("[data-i18n]").forEach(el=>{
 el.textContent=t[lang][el.dataset.i18n];
+});
+document.querySelectorAll("[data-i18n-html]").forEach(el=>{
+el.innerHTML=t[lang][el.dataset.i18nHtml];
 });
 }
 </script>
