@@ -1,381 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Self Check-in Guide - Estepona</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f7f7f7;
-      color: #333;
-    }
-    .container {
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-      background: white;
-    }
-    h1 { text-align: center; color: #2c3e50; }
-    h2 {
-      border-bottom: 1px solid #eee;
-      padding-bottom: 5px;
-      margin-top: 30px;
-    }
-    .card {
-      background: #fafafa;
-      padding: 15px;
-      margin-top: 10px;
-      border-radius: 8px;
-    }
-    a { color: #007BFF; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .highlight { font-weight: bold; }
-    .hero-img {
-      width: 100%;
-      border-radius: 10px;
-      display: block;
-      margin: 15px 0 5px 0;
-    }
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-top: 12px;
-      display: block;
-    }
-    .photo-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 12px;
-    }
-    .photo-row img {
-      flex: 1 1 240px;
-      width: 100%;
-      margin-top: 0;
-    }
-    .photo-caption {
-      font-size: 0.85em;
-      color: #777;
-      margin-top: 4px;
-    }
-    .lang-switch {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin: 12px 0 8px 0;
-      flex-wrap: wrap;
-    }
-    .lang-btn {
-      border: 1px solid #007BFF;
-      background: white;
-      color: #007BFF;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.9em;
-      cursor: pointer;
-    }
-    .lang-btn.active {
-      background: #007BFF;
-      color: white;
-    }
-    .ac-warning {
-      background: #fff3e0;
-      border-left: 4px solid #f39c12;
-      padding: 12px 16px;
-      border-radius: 6px;
-      margin-top: 12px;
-    }
-    .ac-warning strong { color: #e67e22; }
-  </style>
+<meta charset="UTF-8">
+<title>Welcome</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f5f5f5;
+    color: #1a1a1a;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: auto;
+    padding: 30px 20px;
+  }
+
+  .lang-switch {
+    text-align: right;
+    margin-bottom: 20px;
+  }
+
+  .lang-switch button {
+    border: none;
+    background: #eaeaea;
+    padding: 6px 10px;
+    margin-left: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .lang-switch button.active {
+    background: #000;
+    color: white;
+  }
+
+  .hero {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  }
+
+  h1 { font-size: 28px; }
+  h2 { font-size: 18px; }
+
+  p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .button {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .primary { background: black; color: white; }
+  .secondary { background: #eee; color: #333; }
+
+</style>
 </head>
+
 <body>
 
 <div class="container">
 
-  <h1><span data-i18n="page_title">🏡 Self Check-in Guide</span> - C/ Azucena, 6 - Estepona</h1>
-
+  <!-- LANGUAGE SWITCH -->
   <div class="lang-switch">
-    <button class="lang-btn" data-lang-btn="en" onclick="setLanguage('en')">🇬🇧 EN</button>
-    <button class="lang-btn" data-lang-btn="es" onclick="setLanguage('es')">🇪🇸 ES</button>
-    <button class="lang-btn" data-lang-btn="fr" onclick="setLanguage('fr')">🇫🇷 FR</button>
-    <button class="lang-btn" data-lang-btn="de" onclick="setLanguage('de')">🇩🇪 DE</button>
+    <button onclick="setLang('en')" id="btn-en" class="active">EN</button>
+    <button onclick="setLang('es')" id="btn-es">ES</button>
+    <button onclick="setLang('fr')" id="btn-fr">FR</button>
+    <button onclick="setLang('de')" id="btn-de">DE</button>
   </div>
 
-  <img class="hero-img" src="images/DSC04404.jpg" data-i18n-alt="hero_alt">
+  <!-- HERO -->
+  <div class="hero">
+    <h1 data-en="Welcome 👋" data-es="Bienvenido 👋" data-fr="Bienvenue 👋" data-de="Willkommen 👋">Welcome 👋</h1>
+    <p data-en="Everything you need for your stay."
+       data-es="Todo lo que necesitas para tu estancia."
+       data-fr="Tout ce dont vous avez besoin pour votre séjour."
+       data-de="Alles, was Sie für Ihren Aufenthalt brauchen.">
+       Everything you need for your stay.
+    </p>
+  </div>
 
-  <h2 data-i18n="access_h2">🔑 Access</h2>
+  <!-- HOUSE -->
   <div class="card">
-    <p data-i18n-html="access_intro"></p>
-    <p data-i18n-html="access_code"></p>
-    <img src="images/PSPh_3063.jpg" data-i18n-alt="access_photo_alt">
-    <p class="photo-caption" data-i18n="access_caption"></p>
+    <h2 data-en="🏡 House Information"
+        data-es="🏡 Información de la casa"
+        data-fr="🏡 Informations sur le logement"
+        data-de="🏡 Hausinformationen">
+        🏡 House Information
+    </h2>
+
+    <p data-en="Please make yourself at home."
+       data-es="Por favor, siéntete como en casa."
+       data-fr="Faites comme chez vous."
+       data-de="Fühlen Sie sich wie zu Hause.">
+       Please make yourself at home.
+    </p>
+
+    <p>
+      • WiFi: (add)<br>
+      • Check-in/out: (add)
+    </p>
   </div>
 
-  <h2 data-i18n="house_h2">🏠 The House</h2>
+  <!-- MAPS -->
   <div class="card">
-    <p data-i18n="house_intro"></p>
-    <div class="photo-row">
-      <img src="images/PSPh_3143.jpg" data-i18n-alt="house_alt1">
-      <img src="images/PSPh_3193.jpg" data-i18n-alt="house_alt2">
-    </div>
-  </div>
+    <h2 data-en="📍 Local Guide"
+        data-es="📍 Guía local"
+        data-fr="📍 Guide local"
+        data-de="📍 Lokaler Guide">
+        📍 Local Guide
+    </h2>
 
-  <h2>📶 Wi-Fi</h2>
-  <div class="card">
-    <p><strong data-i18n="wifi_network_label"></strong> Casita</p>
-    <p><strong data-i18n="wifi_password_label"></strong> estepona</p>
-  </div>
+    <p data-en="Our curated recommendations."
+       data-es="Nuestras recomendaciones."
+       data-fr="Nos recommandations."
+       data-de="Unsere Empfehlungen.">
+       Our curated recommendations.
+    </p>
 
-  <h2 data-i18n="essentials_h2">🛏️ Essentials</h2>
-  <div class="card">
-    <p data-i18n="essentials_text"></p>
-  </div>
+    <a href="https://maps.app.goo.gl/HMr3f7wAdSFDgdmGA" target="_blank" class="button primary"
+       data-en="🍽️ Food Spots"
+       data-es="🍽️ Restaurantes"
+       data-fr="🍽️ Restaurants"
+       data-de="🍽️ Restaurants">
+       🍽️ Food Spots
+    </a>
 
-  <h2 data-i18n="parking_h2">🚗 Parking</h2>
-  <div class="card">
-    <p><a href="https://maps.app.goo.gl/VQ4smcrvbXYZjF9i6" target="_blank" data-i18n="parking_link1"></a> <span data-i18n="parking_note1"></span></p>
-    <p><a href="https://maps.app.goo.gl/Vnp1BmeYDKk326dLA" target="_blank" data-i18n="parking_link2"></a></p>
-    <p data-i18n="parking_street_text"></p>
-    <p><span data-i18n="parking_usual_text"></span><br>
-    <a href="https://maps.app.goo.gl/U8qta5Nyz2izJV1s8" target="_blank" data-i18n="parking_directions"></a></p>
-  </div>
+    <br>
 
-  <h2 data-i18n="supermarkets_h2">🛒 Nearby Supermarkets</h2>
-  <div class="card">
-    <ul>
-      <li><a href="https://maps.app.goo.gl/shTXWpfKMjPco9k18" target="_blank">Carrefour Express</a></li>
-      <li><a href="https://maps.app.goo.gl/AXoeSoYBudSyCaXF7" target="_blank">Carrefour Market</a></li>
-      <li><a href="https://maps.app.goo.gl/UGKmsryvUuEre7sU6" target="_blank">Supermercado Dia</a></li>
-    </ul>
-  </div>
-
-  <h2 data-i18n="ac_h2">❄️ Air Conditioning & Heating</h2>
-  <div class="card ac-warning">
-    <p data-i18n-html="ac_message"></p>
-  </div>
-
-  <h2 data-i18n="contact_h2">📞 Contact</h2>
-  <div class="card">
-    <p data-i18n="contact_text"></p>
-    <p><strong data-i18n="contact_name"></strong> · +34 684 335 725</p>
-  </div>
-
-  <h2 data-i18n="enjoy_h2">😊 Enjoy your stay!</h2>
-  <div class="card">
-    <img src="images/PSPh_3233.jpg" data-i18n-alt="enjoy_alt">
+    <a href="https://maps.app.goo.gl/56Yh8cR3Par8S8hLA" target="_blank" class="button secondary"
+       data-en="🌍 Things to Do"
+       data-es="🌍 Qué visitar"
+       data-fr="🌍 À visiter"
+       data-de="🌍 Sehenswürdigkeiten">
+       🌍 Things to Do
+    </a>
   </div>
 
 </div>
 
 <script>
-const translations = {
+function setLang(lang) {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = el.getAttribute('data-' + lang);
+  });
 
-/* ENGLISH */
-en: {
-  tab_title: "Self Check-in Guide",
-  page_title: "🏡 Self Check-in Guide",
-  hero_alt: "Flower-lined street with fountain in Estepona old town",
+  document.querySelectorAll('.lang-switch button').forEach(btn => {
+    btn.classList.remove('active');
+  });
 
-  access_h2: "🔑 Access",
-  access_intro: "Once you arrive at the house at <strong>C/ Azucena, 6</strong>, you’ll find the key inside the lockbox.",
-  access_code: "<span class='highlight'>Access code:</span> We’ll send this to you in a separate message shortly before your arrival.",
-  access_photo_alt: "Street view of the house entrance",
-  access_caption: "This is what the street and front door look like — number 6 is just above the door.",
-
-  house_h2: "🏠 The House",
-  house_intro: "Here’s a quick look inside before you arrive:",
-  house_alt1: "Kitchen and staircase",
-  house_alt2: "Bedroom with balcony access",
-
-  wifi_network_label: "Network:",
-  wifi_password_label: "Password:",
-
-  essentials_h2: "🛏️ Essentials",
-  essentials_text: "You’ll find extra towels and bed linen in the living room cupboard.",
-
-  parking_h2: "🚗 Parking",
-  parking_link1: "Town Hall Parking",
-  parking_note1: "(most affordable)",
-  parking_link2: "Beach Promenade Parking",
-  parking_street_text: "Street parking in Estepona is free.",
-  parking_usual_text: "I usually park about a 10-minute walk away:",
-  parking_directions: "View directions",
-
-  supermarkets_h2: "🛒 Nearby Supermarkets",
-
-  ac_h2: "❄️ Air Conditioning & Heating",
-  ac_message: "<strong>Important:</strong> Please ensure all windows and doors are fully closed when using the air conditioning or heating; otherwise, the system may shut down automatically. If the red light is on, it usually means a window or door is still open.",
-
-  contact_h2: "📞 Contact",
-  contact_text: "If you need anything at all, feel free to contact me — I’m happy to help.",
-  contact_name: "Leandro",
-
-  enjoy_h2: "😊 Enjoy your stay!",
-  enjoy_alt: "Balcony and interior detail"
-},
-
-/* SPANISH (FORMAL) */
-es: {
-  tab_title: "Guía de Check-in",
-  page_title: "🏡 Guía de Check-in",
-  hero_alt: "Calle con flores en el casco antiguo de Estepona",
-
-  access_h2: "🔑 Acceso",
-  access_intro: "Al llegar a la casa en <strong>C/ Azucena, 6</strong>, encontrará la llave dentro de la caja de seguridad.",
-  access_code: "<span class='highlight'>Código de apertura:</span> Se lo enviaremos en un mensaje aparte poco antes de su llegada.",
-  access_photo_alt: "Entrada de la vivienda",
-  access_caption: "Así es la calle y la puerta principal — el número 6 está justo encima.",
-
-  house_h2: "🏠 La Casa",
-  house_intro: "Un pequeño adelanto del interior antes de su llegada:",
-  house_alt1: "Cocina y escalera",
-  house_alt2: "Dormitorio con balcón",
-
-  wifi_network_label: "Red:",
-  wifi_password_label: "Contraseña:",
-
-  essentials_h2: "🛏️ Lo Esencial",
-  essentials_text: "Encontrará toallas y sábanas adicionales en el armario del salón.",
-
-  parking_h2: "🚗 Aparcamiento",
-  parking_link1: "Parking del Ayuntamiento",
-  parking_note1: "(el más económico)",
-  parking_link2: "Parking Paseo Marítimo",
-  parking_street_text: "El aparcamiento en la calle en Estepona es gratuito.",
-  parking_usual_text: "Normalmente suelo aparcar a unos 10 minutos a pie:",
-  parking_directions: "Ver indicaciones",
-
-  supermarkets_h2: "🛒 Supermercados Cercanos",
-
-  ac_h2: "❄️ Aire Acondicionado y Calefacción",
-  ac_message: "<strong>Importante:</strong> Si utiliza el aire acondicionado o la calefacción, asegúrese de que todas las puertas y ventanas estén completamente cerradas; de lo contrario, el sistema podría apagarse automáticamente. Si la luz roja está encendida, normalmente indica que alguna ventana o puerta permanece abierta.",
-
-  contact_h2: "📞 Contacto",
-  contact_text: "Si necesita cualquier cosa, no dude en ponerse en contacto conmigo — estaré encantado de ayudarle.",
-  contact_name: "Leandro",
-
-  enjoy_h2: "😊 ¡Que disfrute de su estancia!",
-  enjoy_alt: "Detalle interior"
-},
-
-/* FRENCH */
-fr: {
-  tab_title: "Guide d'arrivée",
-  page_title: "🏡 Guide d'Arrivée Autonome",
-  hero_alt: "Rue fleurie à Estepona",
-
-  access_h2: "🔑 Accès",
-  access_intro: "À votre arrivée au logement situé au <strong>C/ Azucena, 6</strong>, vous trouverez la clé dans la boîte à clés.",
-  access_code: "<span class='highlight'>Code d'accès :</span> Il vous sera envoyé peu avant votre arrivée.",
-  access_photo_alt: "Entrée du logement",
-  access_caption: "Voici la rue et l’entrée — le numéro 6 est juste au-dessus.",
-
-  house_h2: "🏠 Le Logement",
-  house_intro: "Un aperçu avant votre arrivée :",
-  house_alt1: "Cuisine et escalier",
-  house_alt2: "Chambre avec balcon",
-
-  wifi_network_label: "Réseau :",
-  wifi_password_label: "Mot de passe :",
-
-  essentials_h2: "🛏️ L’Essentiel",
-  essentials_text: "Des serviettes et draps supplémentaires sont disponibles dans le placard du salon.",
-
-  parking_h2: "🚗 Stationnement",
-  parking_link1: "Parking Mairie",
-  parking_note1: "(le plus économique)",
-  parking_link2: "Parking Front de Mer",
-  parking_street_text: "Le stationnement dans la rue est gratuit.",
-  parking_usual_text: "Je me gare généralement à 10 minutes à pied :",
-  parking_directions: "Voir l’itinéraire",
-
-  supermarkets_h2: "🛒 Supermarchés à proximité",
-
-  ac_h2: "❄️ Climatisation & Chauffage",
-  ac_message: "<strong>Important :</strong> Veuillez fermer toutes les fenêtres et portes lorsque vous utilisez la climatisation ou le chauffage, sinon le système peut s’arrêter automatiquement. Si le voyant rouge est allumé, cela signifie généralement qu’une ouverture est restée ouverte.",
-
-  contact_h2: "📞 Contact",
-  contact_text: "N’hésitez pas à me contacter si besoin — je suis là pour vous aider.",
-  contact_name: "Leandro",
-
-  enjoy_h2: "😊 Bon séjour !",
-  enjoy_alt: "Intérieur"
-},
-
-/* GERMAN */
-de: {
-  tab_title: "Check-in-Anleitung",
-  page_title: "🏡 Check-in-Anleitung",
-  hero_alt: "Straße in Estepona",
-
-  access_h2: "🔑 Zugang",
-  access_intro: "Bei Ihrer Ankunft in der <strong>C/ Azucena, 6</strong> finden Sie den Schlüssel in der Schlüsselbox.",
-  access_code: "<span class='highlight'>Zugangscode:</span> Diesen erhalten Sie kurz vor Ihrer Ankunft.",
-  access_photo_alt: "Eingang",
-  access_caption: "So sieht der Eingang aus — die Nummer 6 befindet sich darüber.",
-
-  house_h2: "🏠 Die Unterkunft",
-  house_intro: "Ein kurzer Einblick vor Ihrer Ankunft:",
-  house_alt1: "Küche und Treppe",
-  house_alt2: "Schlafzimmer mit Balkon",
-
-  wifi_network_label: "Netzwerk:",
-  wifi_password_label: "Passwort:",
-
-  essentials_h2: "🛏️ Ausstattung",
-  essentials_text: "Zusätzliche Handtücher und Bettwäsche finden Sie im Wohnzimmer.",
-
-  parking_h2: "🚗 Parken",
-  parking_link1: "Parkplatz Rathaus",
-  parking_note1: "(am günstigsten)",
-  parking_link2: "Parkplatz Strandpromenade",
-  parking_street_text: "Parken auf der Straße ist kostenlos.",
-  parking_usual_text: "Ich parke etwa 10 Minuten entfernt:",
-  parking_directions: "Route anzeigen",
-
-  supermarkets_h2: "🛒 Supermärkte in der Nähe",
-
-  ac_h2: "❄️ Klimaanlage & Heizung",
-  ac_message: "<strong>Wichtig:</strong> Bitte schließen Sie alle Fenster und Türen, wenn Sie die Klimaanlage oder Heizung nutzen, da sich das System sonst automatisch abschalten kann. Wenn die rote Leuchte an ist, ist meist noch etwas offen.",
-
-  contact_h2: "📞 Kontakt",
-  contact_text: "Bei Fragen können Sie mich jederzeit kontaktieren — ich helfe gerne.",
-  contact_name: "Leandro",
-
-  enjoy_h2: "😊 Einen schönen Aufenthalt!",
-  enjoy_alt: "Innenansicht"
+  document.getElementById('btn-' + lang).classList.add('active');
 }
-};
-
-function setLanguage(lang) {
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    let key = el.getAttribute('data-i18n');
-    if (translations[lang][key]) el.textContent = translations[lang][key];
-  });
-
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    let key = el.getAttribute('data-i18n-html');
-    if (translations[lang][key]) el.innerHTML = translations[lang][key];
-  });
-
-  document.querySelectorAll('[data-i18n-alt]').forEach(el => {
-    let key = el.getAttribute('data-i18n-alt');
-    if (translations[lang][key]) el.alt = translations[lang][key];
-  });
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
-  });
-
-  document.title = translations[lang].tab_title + " - Estepona";
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  setLanguage((navigator.language || 'en').slice(0,2));
-});
 </script>
 
 </body>
