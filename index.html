@@ -37,24 +37,38 @@ h2 {
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
+/* HERO IMAGE */
 .hero-img {
   width: 100%;
+  height: auto;
   border-radius: 16px;
   margin: 15px 0;
 }
 
-.photo-grid {
+/* SINGLE IMAGES */
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-top: 12px;
+  display: block;
+}
+
+/* INTERIOR GRID (FIXED) */
+.photo-row {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
+  margin-top: 12px;
 }
 
-.photo-grid img {
-  width: 100%;
+.photo-row img {
+  width: 50%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   border-radius: 12px;
-  flex: 1 1 48%;
 }
 
+/* LANGUAGE */
 .lang-switch {
   text-align: center;
 }
@@ -73,11 +87,13 @@ h2 {
   color: white;
 }
 
+/* LINKS */
 a {
   color: #007aff;
   text-decoration: none;
 }
 
+/* WHATSAPP */
 .whatsapp-btn {
   position: fixed;
   bottom: 20px;
@@ -87,6 +103,8 @@ a {
   padding: 14px 18px;
   border-radius: 30px;
   text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 </style>
 </head>
@@ -116,7 +134,7 @@ a {
 
 <h2 data-i18n="house">🏠 The House</h2>
 <div class="card">
-<div class="photo-grid">
+<div class="photo-row">
 <img src="images/PSPh_3143.jpg">
 <img src="images/PSPh_3193.jpg">
 </div>
@@ -176,18 +194,17 @@ const t = {
 en:{
 title:"🏡 Self Check-in Guide",
 access:"🔑 Access",
-access_text:"Once you arrive at <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a>, you’ll find the key in the lockbox by the entrance.",
-access_code:"The code will be sent shortly before arrival.",
-house:"🏠 The House",
+access_text:"Once you arrive at <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a>, you will find the key in the lockbox by the entrance.",
+access_code:"The access code will be sent shortly before your arrival.",
 ac:"❄️ Air Conditioning & Heating",
-ac_text:"Ensure all windows and doors are closed when using A/C or heating. Otherwise, it may shut down. A red light means something is open.",
+ac_text:"Please ensure all windows and doors are fully closed when using the air conditioning or heating. Otherwise, the system may shut down automatically. If the red light next to the A/C unit is on, it usually means a window or door is still open.",
 parking:"🚗 Parking",
-parking_text:"Street parking is free. Paid options available nearby.",
+parking_text:"Street parking is free. Paid options are also available nearby.",
 supermarkets:"🛒 Supermarkets",
 guide:"📍 Local Guide",
 guide_text:"Our favorite local spots and places to explore:",
 contact:"📞 Contact",
-contact_text:"Reach out anytime if you need anything.",
+contact_text:"Feel free to contact me anytime during your stay.",
 enjoy:"😊 Enjoy your stay!"
 },
 es:{
@@ -195,9 +212,8 @@ title:"🏡 Guía de Check-in",
 access:"🔑 Acceso",
 access_text:"Al llegar a <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a>, encontrarás la llave en la caja de seguridad.",
 access_code:"El código se enviará antes de tu llegada.",
-house:"🏠 La Casa",
-ac:"❄️ Aire Acondicionado",
-ac_text:"Cierra puertas y ventanas. Si la luz roja está encendida, algo está abierto.",
+ac:"❄️ Aire Acondicionado y Calefacción",
+ac_text:"Asegúrate de cerrar puertas y ventanas. Si la luz roja está encendida, significa que algo está abierto.",
 parking:"🚗 Aparcamiento",
 parking_text:"Aparcamiento gratuito en la calle.",
 supermarkets:"🛒 Supermercados",
@@ -212,11 +228,10 @@ title:"🏡 Guide d'arrivée",
 access:"🔑 Accès",
 access_text:"À votre arrivée à <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a>, la clé est dans la boîte.",
 access_code:"Code envoyé avant arrivée.",
-house:"🏠 La Maison",
 ac:"❄️ Climatisation",
 ac_text:"Fermez portes et fenêtres. Lumière rouge = ouvert.",
 parking:"🚗 Stationnement",
-parking_text:"Parking gratuit dans la rue.",
+parking_text:"Parking gratuit.",
 supermarkets:"🛒 Supermarchés",
 guide:"📍 Guide Local",
 guide_text:"Nos recommandations:",
@@ -229,7 +244,6 @@ title:"🏡 Check-in Anleitung",
 access:"🔑 Zugang",
 access_text:"Bei Ankunft in <a href='https://maps.app.goo.gl/qNtK6Gj4NhRhA1LY9' target='_blank'><strong>C/ Azucena 6</strong></a> ist der Schlüssel in der Box.",
 access_code:"Code vor Ankunft.",
-house:"🏠 Das Haus",
 ac:"❄️ Klimaanlage",
 ac_text:"Fenster und Türen schließen. Rotes Licht = offen.",
 parking:"🚗 Parken",
